@@ -1,5 +1,6 @@
 (function($){
   // Search
+  console.log("hello world");
   var $searchWrap = $('#search-form-wrap'),
     isSearchAnim = false,
     searchAnimDuration = 200;

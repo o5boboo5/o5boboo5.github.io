@@ -167,7 +167,7 @@ var Debounce = (fn, t) =>{
 			$(document, window).scroll(Debounce(() =>{
 				volantis.$tocTarget.removeClass('active');
 				volantis.$toc.removeClass('active');
-			},
+      },
 			100));
 		} else volantis.$toc.remove();
 	}
