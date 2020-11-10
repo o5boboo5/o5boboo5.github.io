@@ -19,9 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>jQuery Tips - Hexo</title>
-  
-    <meta name="keywords" content="jQuery, practice">
+  <title>Javascript - Hexo</title>
   
 
   
@@ -405,7 +403,7 @@
     
     
       <h1 class="title">
-        jQuery Tips
+        Javascript
       </h1>
       <div class='new-meta-box'>
         
@@ -429,7 +427,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Nov 8, 2020</p>
+    <p>发布于：Oct 18, 2020</p>
   </a>
 </div>
 
@@ -440,7 +438,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="jQuery Tips" data-path="/2020/11/08/jQuery%20Tips/">
+      <div id="lc-pv" data-title="Javascript" data-path="/2020/10/18/dom/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -457,25 +455,73 @@
 
 
   
-  <p>jQuery实践</p>
-<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><ul>
-<li><p>访问DOM元素</p>
+  <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><hr>
+<p>###</p>
+<p>在HTML中,document 节点表示每个文档的根节点。在这里，根节点的唯一子节点是<html>元素，我们称之 为文档元素（documentElement）。文档元素是文档最外层的元素，所有其他元素都存在于这个元素之内。在 HTML 页面中，文档元素始终是<html>元素。</p>
 <ul>
-<li><code>$(elem).get(0)</code></li>
-<li><code>$(elem)[0]</code></li>
+<li>Node.ELEMENT_NODE（1）</li>
+<li>Node.ATTRIBUTE_NODE（2）</li>
+<li>Node.TEXT_NODE（3）</li>
+<li>Node.CDATA_SECTION_NODE（4）</li>
+<li>Node.ENTITY_REFERENCE_NODE（5）</li>
+<li>Node.ENTITY_NODE（6）</li>
+<li>Node.PROCESSING_INSTRUCTION_NODE（7） </li>
+<li>Node.COMMENT_NODE（8） </li>
+<li>Node.DOCUMENT_NODE（9）</li>
+<li>Node.DOCUMENT_TYPE_NODE（10）</li>
+<li>Node.DOCUMENT_FRAGMENT_NODE（11）</li>
+<li>Node.NOTATION_NODE（12）</li>
 </ul>
+<p>如果一个节点是元素节点,那么该节点的nodeType就为1,该节点的nodeName就会等于该元素的标签名,而nodeValue值则为null.</p>
+<p>节点关系</p>
+<p>每个节点都有一个 childNodes 属性，其中包含一个 NodeList 的实例。NodeList 是一个类数组 对象，用于存储可以按位置存取的有序节点。注意，NodeList 并不是 Array 的实例，但可以使用中括 号访问它的值，而且它也有 length 属性。NodeList 对象独特的地方在于，它其实是一个对 DOM 结构的查询，因此 DOM 结构的变化会自动地在 NodeList 中反映出来。我们通常说 NodeList 是实时的 活动对象，而不是第一次访问时所获得内容的快照。</p>
+<p>如何使用中括号或使用 item()方法访问 NodeList 中的元素：<br><code>someNode.childNodes[0]</code><br><code>someNode.childNodes.item(3)</code><br><code>someNode.childNodes.length</code></p>
+<p>Important<br><strong>使用 Array.prototype. slice()可以像前面介绍 arguments 时一样把 NodeList 对象转换为数组</strong></p>
+<p><code>Array.prototype.slice.call(someNode.childNodes,0)</code></p>
+<p>更为简洁的ES6方法</p>
+<p><code>Array.from(someNode.childNodes);</code></p>
+<p>每个节点都有一个 parentNode 属性，指向其 DOM 树中的父元素。childNodes 中的所有节点都 有同一个父元素，因此它们的 parentNode 属性都指向同一个节点。此外，childNodes 列表中的每个 节点都是同一列表中其他节点的同胞节点。而使用 previousSibling 和 nextSibling 可以在这个列 表的节点间导航。 这个列表中第一个节点的 previousSibling 属性是 null ， 最后一个节点的 nextSibling 属性也是 null，</p>
+<p>父节点和它的第一个及最后一个子节点也有专门属性： firstChild 和 lastChild 分别指向 childNodes 中的第一个和最后一个子节点。 someNode.firstChild 的值始终等于 someNode. childNodes[0] ， 而 someNode.lastChild 的值始终等于 someNode.childNodes[someNode. childNodes.length-1]。如果只有一个子节点，则 firstChild 和 lastChild 指向同一个节点。如 果没有子节点，则 firstChild 和 lastChild 都是 null。</p>
+<p>ownerDocument 属性是一个指向代表整个文档的文档节点 的指针。即#document.</p>
+<h3 id="节点的属性"><a href="#节点的属性" class="headerlink" title="节点的属性"></a>节点的属性</h3><p><code>nodeName</code> 如果为元素节点,则是节点的标签名,如果是文本节点,则为#text.<br><code>nodeType</code><br><code>nodeValue</code> 如果为元素节点,则为null.为文本节点,则是文本内容.<br><code>childNodes</code><br><code>parentNode</code><br><code>firstChild</code><br><code>lastChild</code><br><code>ownerDocument</code></p>
+<h3 id="元素节点的方法"><a href="#元素节点的方法" class="headerlink" title="元素节点的方法"></a>元素节点的方法</h3><ul>
+<li><p>hasChildNodes()<br>返回true则表示说明节点有一个或多个子节点.</p>
+</li>
+<li><p>.appendChild()<br>如果把文档中已经存在的节点传给 appendChild()，则这个节点会从之前的位置被转移到新位置。</p>
+</li>
+<li><p>.insertBefore()<br><code>someNode.insertBefore(newNode, referenceChild)</code><br>需要注意的是someNode为要插入节点和参考节点的父元素,否则无效.若referenceChild为null,那么相当于newNode作为最后一个子节点插入.</p>
+</li>
+<li><p>.replaceChild(newNode,oldNode)<br><code>someNode.replaceChild(newNode, someNode.firstChild)</code></p>
+</li>
+<li><p>.removeChild(deleteNode)<br><code>someNode.removeChild(someNode.firstChild)</code></p>
+</li>
+<li><p>.cloneNode()<br>cloneNode()方法接收一个布尔值参数，表示是否深复制。默认为false.在传入 true 参数时，会进行深复制， 即复制节点及其整个子 DOM 树。如果传入 false，则只会复制调用该方法的节点。复制返回的节点属 于文档所有， 但尚未指定父节点， 所以可称为孤儿节点（orphan）。因此一般需要后续操作将复制后的节点插入到文档中.</p>
+</li>
+<li><p>.normalize()<br>这个方法唯一的任务就是处理文档子树中的文本节 点。由于解析器实现的差异或 DOM 操作等原因，可能会出现并不包含文本的文本节点，或者文本节点节点层级之间互为同胞关系。在节点上调用 normalize()方法会检测这个节点的所有后代，从中搜索上述两种 情形。如果发现空文本节点，则将其删除；如果两个同胞节点是相邻的，则将其合并为一个文本节点.</p>
 </li>
 </ul>
-<p>如果elem中包含多个元素,那么访问第二个元素就可以<code>.get(1)</code>或者<code>$(elem).[1]</code><br>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><strong>Document</strong>类型</p>
+<p>Document 类型是 JavaScript 中表示文档节点的类型。 在浏览器中， 文档对象 document 是 HTMLDocument 的实例（HTMLDocument 继承 Document），表示整个 HTML 页面。</p>
+<ul>
+<li>document.documentElement<br>始终指向 HTML 页面中的<html>元素</li>
+<li>document.body<br>直接指向<code>&lt;body&gt;</code>元素</li>
+</ul>
+<p>document的另一些属性(不重要)</p>
+<p><code>title</code>,<code>URL</code>,<code>domain</code>,<code>referee</code>,<code>anchors</code>,<code>forms</code>,<code>images</code>,<code>links</code></p>
+<p>DOM选择元素</p>
+<ul>
+<li><p>.getElementById()</p>
+</li>
+<li><p>.getElementsByTagName()<br>在 HTML 文档中， 这个方法返回一个 HTMLCollection 对象。考虑到二者都是“实时”列表，HTMLCollection 与 NodeList 是很相似的。<br>对 HTMLCollection 对象而言，中括号既可以接收数值索引.<code>document.getElementsByTagName()[]</code>可以通过[]来取值.如果中括号里面值为数字,那么就是数值索引.如果中括号里面为字符串,那么会寻找name属性等同于字符串的元素,这时等价于<code>document.getElementsByTagName().namedItem()</code></p>
+</li>
+<li><p>.getElementsByName()</p>
+</li>
+<li><p>document.write()<br>用来在页面加载期间向页面中动态添加内容</p>
+</li>
+<li><p>document.writeln()<br>还会在字符串末尾追加一个换行符 （\n）</p>
+</li>
+</ul>
+<p><strong>Element</strong>类型</p>
 
   
   
@@ -493,7 +539,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2020/11/08/jQuery%20Tips/>http://example.com/2020/11/08/jQuery%20Tips/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2020/10/18/dom/>http://example.com/2020/10/18/dom/</a></p>
               
             
           </blockquote>
@@ -510,10 +556,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-09T17:21:56+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-10T21:28:55+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Nov 9, 2020</p>
+    <p>更新于：Nov 10, 2020</p>
   </a>
 </div>
 
@@ -521,9 +567,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/jQuery-practice/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>jQuery, practice</p></a></div>
-
 
         
       
@@ -535,7 +578,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/08/jQuery%20Tips/&title=jQuery Tips - Hexo&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/10/18/dom/&title=Javascript - Hexo&summary="
           
           >
           
@@ -547,7 +590,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/11/08/jQuery%20Tips/&title=jQuery Tips - Hexo&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/10/18/dom/&title=Javascript - Hexo&summary="
           
           >
           
@@ -559,7 +602,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/08/jQuery%20Tips/&title=jQuery Tips - Hexo&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/10/18/dom/&title=Javascript - Hexo&summary="
           
           >
           
@@ -589,28 +632,16 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2020/11/10/DOM-0/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>DOM</p>
-          <p class='content'>
-title: Javascriptdate: 2020-10-18 23:20:42tags:author: biubiu
-
-DOM
-###
-在HTML中,document 节点表示每个文档的...</p>
+        <a class='prev' href='/2020/10/18/Javascript/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Javascript</p>
+          <p class='content'></p>
         </a>
       
       
-        <a class='next' href='/2020/10/31/%E5%A5%BD%E5%A5%BD%E7%8E%A9/'>
-          <p class='title'><i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-
-  
-  scrollLeft demo
-  
-  div.demo {
-    background: #ccc none repeat scroll 0 0;
-    border: ...</p>
+        <a class='next' href='/2020/10/18/Javascript%20Something%20Else/'>
+          <p class='title'>Javascript Something else<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>一些无关紧要的Javascript知识
+Javascript类型转换大多数情况下，运算符和函数会自动将赋予它们的值转换为正确的类型。比如，alert 会自动将任何值都转换为字符串以进行显示。算术...</p>
         </a>
       
     </div>
@@ -653,7 +684,7 @@ DOM
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">节点的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">元素节点的方法</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -673,7 +704,7 @@ DOM
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="jQuery Tips";
+  pdata.postTitle="Javascript";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
