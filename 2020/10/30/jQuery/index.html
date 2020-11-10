@@ -466,18 +466,48 @@
 <p>自定义 选择符通常跟在一个CSS选择符后面，基于已经选择的元素集的位置来查找元素。自定义选择符 的语法与CSS中的伪类选择符语法相同，即选择符以冒号（ :）开头</p>
 <p>注意，因为JavaScript数组采用从0开始的编号方式，所以eq(1)取得的是集合中的第2个元素。 而CSS则是从1开始的，因此CSS选择符$(‘div:nth-child(1)’)取得的是作为其父元素第1个 子元素的所有 div元素。</p>
 <p><code>:odd</code>  odd虽然意思为奇数,但是选择的是偶数,因为采用的是JS数组编号方式.</p>
-<h4 id="contains"><a href="#contains" class="headerlink" title=":contains()"></a>:contains()</h4><p>匹配的文本可以直接出现在所选的元素中，或在该元素的任何后代中，或两者兼有。正如属性值选择器，:contains()选择器中括号内的文字，可为纯文本，或用引号包围。文本必须有匹配的情况下被选中。</p>
-<h4 id="animated"><a href="#animated" class="headerlink" title=":animated"></a>:animated</h4><p>选择所有正在执行动画效果的元素.<br>为了当使用:animated 的时候在现代浏览器上获得更佳的性能，首先使用纯CSS选择器选择元素，然后使用.filter(“:animated”).</p>
-<h4 id="empty"><a href="#empty" class="headerlink" title=":empty"></a>:empty</h4><p>选择所有没有子元素（包括文本节点）的元素。</p>
-<h4 id="parent"><a href="#parent" class="headerlink" title=":parent"></a>:parent</h4><p>选择所有含有子元素或者文本的元素。</p>
-<h4 id="eq"><a href="#eq" class="headerlink" title=":eq()"></a>:eq()</h4><p>在匹配的集合中选择索引值为index的元素。从0开始计数.<br>为了在现代浏览器上获得更佳的性能，请使用$(“your-pure-css-selector”).eq(index)代替。</p>
-<h4 id="first"><a href="#first" class="headerlink" title=":first"></a>:first</h4><p>:first只匹配第一个单独的元素，但是:first-child选择器可以匹配多个：即为每个父级元素匹配第一个子元素。为了在现代浏览器上获得更佳的性能，请使用.filter(“:first”)代替。</p>
-<h4 id="last"><a href="#last" class="headerlink" title=":last"></a>:last</h4><p>选择最后一个匹配的元素</p>
-<h4 id="gt-index"><a href="#gt-index" class="headerlink" title=":gt(index)"></a>:gt(index)</h4><p>选择匹配集合中所有大于(不等于)给定index（索引值）的元素。<br>index: 从0开始计数的索引值。<br>-index: 从0开始计数的索引值。 从最后一个元素开始反向计数。</p>
+<ul>
+<li>:contains()</li>
+</ul>
+<p>匹配的文本可以直接出现在所选的元素中，或在该元素的任何后代中，或两者兼有。正如属性值选择器，:contains()选择器中括号内的文字，可为纯文本，或用引号包围。文本必须有匹配的情况下被选中。</p>
+<ul>
+<li>:animated</li>
+</ul>
+<p>选择所有正在执行动画效果的元素.<br>为了当使用:animated 的时候在现代浏览器上获得更佳的性能，首先使用纯CSS选择器选择元素，然后使用.filter(“:animated”).</p>
+<ul>
+<li>:empty</li>
+</ul>
+<p>选择所有没有子元素（包括文本节点）的元素。</p>
+<ul>
+<li>:parent</li>
+</ul>
+<p>选择所有含有子元素或者文本的元素。</p>
+<ul>
+<li>:eq()</li>
+</ul>
+<p>在匹配的集合中选择索引值为index的元素。从0开始计数.<br>为了在现代浏览器上获得更佳的性能，请使用$(“your-pure-css-selector”).eq(index)代替。</p>
+<ul>
+<li>:first</li>
+</ul>
+<p>:first只匹配第一个单独的元素，但是:first-child选择器可以匹配多个：即为每个父级元素匹配第一个子元素。为了在现代浏览器上获得更佳的性能，请使用.filter(“:first”)代替。</p>
+<ul>
+<li>:last</li>
+</ul>
+<p>选择最后一个匹配的元素</p>
+<ul>
+<li>:gt(index)</li>
+</ul>
+<p>选择匹配集合中所有大于(不等于)给定index（索引值）的元素。<br>index: 从0开始计数的索引值。<br>-index: 从0开始计数的索引值。 从最后一个元素开始反向计数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;td:gt(4)&#39;) &#x2F;&#x2F;实际上选择的是从第6个单元格开始,因为从0开始计数,因此4代表着第5个单元格,gt(4)因此从第6个开始</span><br></pre></td></tr></table></figure>
 
-<h4 id="has-selector"><a href="#has-selector" class="headerlink" title="has(selector)"></a>has(selector)</h4><p>如果表达式 $(‘div:has(p)’) 匹配一个 <code>&lt;div&gt;</code>，那么应有一个<code>&lt;p&gt;</code>存在于 <code>&lt;div&gt;</code> 后代元素中的任何地方，不是直接的子元素也可以。<br>为了在现代浏览器上获得更佳的性能，请使用$(“your-pure-css-selector”).has(selector/DOMElement) 代替。</p>
-<h4 id="hidden"><a href="#hidden" class="headerlink" title=":hidden"></a>:hidden</h4><p>元素可以被认为是隐藏的几个情况：</p>
+<ul>
+<li>has(selector)</li>
+</ul>
+<p>如果表达式 $(‘div:has(p)’) 匹配一个 <code>&lt;div&gt;</code>，那么应有一个<code>&lt;p&gt;</code>存在于 <code>&lt;div&gt;</code> 后代元素中的任何地方，不是直接的子元素也可以。<br>为了在现代浏览器上获得更佳的性能，请使用$(“your-pure-css-selector”).has(selector/DOMElement) 代替。</p>
+<ul>
+<li>:hidden</li>
+</ul>
+<p>元素可以被认为是隐藏的几个情况：</p>
 <ul>
 <li>他们的CSS display值是none。</li>
 <li>他们是type=”hidden”的表单元素。</li>
@@ -486,15 +516,30 @@
 </ul>
 <p>元素visibility: hidden或opacity: 0被认为是可见的，因为他们仍然占据布局空间。在动画，隐藏一个元素，该元素被认为是可见的直到动画结束。</p>
 <p>为了在现代浏览器上获得更佳的性能，请使用.filter(“:hidden”)代替。</p>
-<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="add"><a href="#add" class="headerlink" title=".add()"></a>.add()</h3><p>添加元素到匹配的元素集合。.add()的参数可以几乎接受任何的$()，包括一个jQuery选择器表达式，DOM元素，或HTML片段引用。不要假设此方法会按照传递给.add()方法的参数的顺序添加到已经存在的集合中。如果所有元素都属于同一个文档，.add()方法所返回的集合将会按照元素在文档中出现的位置进行排序；</p>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><ul>
+<li>.add()  </li>
+</ul>
+<p>添加元素到匹配的元素集合。.add()的参数可以几乎接受任何的$()，包括一个jQuery选择器表达式，DOM元素，或HTML片段引用。不要假设此方法会按照传递给.add()方法的参数的顺序添加到已经存在的集合中。如果所有元素都属于同一个文档，.add()方法所返回的集合将会按照元素在文档中出现的位置进行排序；</p>
 <p>需要注意的是,如果参数是一个html片段,那么它不会出现在页面上,要想在页面上显示,那么在后续使用appendTo等插入方法.</p>
-<h3 id="addBack"><a href="#addBack" class="headerlink" title=".addBack()"></a>.addBack()</h3><p>将堆栈上的前一组元素添加到当前集合中，可以选择通过选择器进行过滤。</p>
+<ul>
+<li>.addBack()</li>
+</ul>
+<p>将堆栈上的前一组元素添加到当前集合中，可以选择通过选择器进行过滤。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;li.third-item&#x27;</span>).nextAll().addBack()</span><br><span class="line">  .css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>);</span><br><span class="line"><span class="comment">/* 首先，初始选择位于第3项，初始化堆栈集合只包含这项。调用.nextAll() 后将第4和第5项推入堆栈。最后，调用.addBack() 合并这两个组元素在一起，创建一个jQuery对象，指向所有三个项元素（按照文档中的顺序）：&#123;[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]&#125; */</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="end"><a href="#end" class="headerlink" title=".end()"></a>.end()</h3><p>结束当前链中的最新过滤操作，并将匹配的元素集返回到其先前状态。jQuery的大多数DOM遍历方法都在jQuery对象实例上运行并产生一个新的，匹配一组不同的DOM元素。发生这种情况时，就好像新的元素集被推到了对象内部维护的堆栈上。每种连续的过滤方法都会将一个新的元素集压入堆栈。如果我们需要一个较旧的元素集，可以使用end()将元素集弹出堆栈。</p>
-<h3 id="children"><a href="#children" class="headerlink" title=".children()"></a>.children()</h3><p>获得匹配元素集合中每个元素的子元素，选择器选择性筛选。<br>.children()方法允许我们通过在DOM树中对这些元素的直接子元素进行搜索，并且构造一个新的匹配元素的jQuery对象。.find()和.children()方法是相似的，但后者只是针对向下一个级别的DOM树。还要注意的是和大多数的jQuery方法一样，.children()不返回文本节点;让所有子元素包括使用文字和注释节点，建议使用.contents()。</p>
-<h3 id="closest"><a href="#closest" class="headerlink" title=".closest()"></a>.closest()</h3><ul>
-<li>closest( selector )<ul>
+<ul>
+<li>.end()</li>
+</ul>
+<p>结束当前链中的最新过滤操作，并将匹配的元素集返回到其先前状态。jQuery的大多数DOM遍历方法都在jQuery对象实例上运行并产生一个新的，匹配一组不同的DOM元素。发生这种情况时，就好像新的元素集被推到了对象内部维护的堆栈上。每种连续的过滤方法都会将一个新的元素集压入堆栈。如果我们需要一个较旧的元素集，可以使用end()将元素集弹出堆栈。</p>
+<ul>
+<li>.children()</li>
+</ul>
+<p>获得匹配元素集合中每个元素的子元素，选择器选择性筛选。<br>.children()方法允许我们通过在DOM树中对这些元素的直接子元素进行搜索，并且构造一个新的匹配元素的jQuery对象。.find()和.children()方法是相似的，但后者只是针对向下一个级别的DOM树。还要注意的是和大多数的jQuery方法一样，.children()不返回文本节点;让所有子元素包括使用文字和注释节点，建议使用.contents()。</p>
+<ul>
+<li><p>.closest()</p>
+</li>
+<li><p>closest( selector )</p>
+<ul>
 <li>.closest( selector )</li>
 <li>.closest( selector [, context ] )</li>
 <li>.closest( jQuery object )</li>
@@ -524,31 +569,265 @@
 <td>返回包含零个，一个或多个元素的jQuery对象</td>
 </tr>
 </tbody></table>
-<h3 id="contents"><a href="#contents" class="headerlink" title=".contents()"></a>.contents()</h3><p>获得匹配元素集合中每个元素的子元素，包括文字和注释节点。<br>.contents()和.children()方法类似，只不过前者包括文本节点以及jQuery对象中产生的HTML元素。</p>
-<h3 id="each-function-index-Element"><a href="#each-function-index-Element" class="headerlink" title=".each(function(index, Element))"></a>.each(function(index, Element))</h3><p>遍历一个jQuery对象，为每个匹配元素执行一个函数。<br>它会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 this 总是指向这个元素。</p>
-<h3 id="eq-index"><a href="#eq-index" class="headerlink" title=".eq(index)"></a>.eq(index)</h3><p>.eq()方法从集合的一个元素中构造新的jQuery对象。所提供的索引标识这个集合中的元素的位置.</p>
-<h3 id="filter"><a href="#filter" class="headerlink" title=".filter()"></a>.filter()</h3><ul>
-<li>.filter( selector )</li>
-<li>.filter( function(index) )</li>
-<li>.filter(element)</li>
-<li>.filter(jQuery Object)</li>
+<ul>
+<li>.contents()</li>
 </ul>
-<h3 id="first-1"><a href="#first-1" class="headerlink" title=".first()"></a>.first()</h3><p>获取匹配元素集合中第一个元素。</p>
-<h3 id="has"><a href="#has" class="headerlink" title=".has()"></a>.has()</h3><p>选择那些 后代元素中与选择器 相匹配的元素.</p>
+<p>获得匹配元素集合中每个元素的子元素，包括文字和注释节点。<br>.contents()和.children()方法类似，只不过前者包括文本节点以及jQuery对象中产生的HTML元素。</p>
+<ul>
+<li>.each(function(index, Element))</li>
+</ul>
+<p>遍历一个jQuery对象，为每个匹配元素执行一个函数。<br>它会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 this 总是指向这个元素。</p>
+<ul>
+<li>.eq(index)</li>
+</ul>
+<p>.eq()方法从集合的一个元素中构造新的jQuery对象。所提供的索引标识这个集合中的元素的位置.</p>
+<ul>
+<li><p>.filter()</p>
+</li>
+<li><p>.filter( selector )</p>
+</li>
+<li><p>.filter( function(index) )</p>
+</li>
+<li><p>.filter(element)</p>
+</li>
+<li><p>.filter(jQuery Object)</p>
+</li>
+<li><p>.first()</p>
+</li>
+</ul>
+<p>获取匹配元素集合中第一个元素。</p>
+<ul>
+<li>.has()</li>
+</ul>
+<p>选择那些 后代元素中与选择器 相匹配的元素.</p>
 <p><code>$(&#39;li&#39;).has(&#39;ul&#39;)</code> 选择后代含有ul元素的li元素.</p>
-<h3 id="find"><a href="#find" class="headerlink" title=".find()"></a>.find()</h3><p>通过一个选择器，jQuery对象，或元素过滤，允许我们能够通过查找DOM树中的这些元素的后代元素，匹配的元素将构造一个新的jQuery对象。.find()和.children()方法是相似的，但后者只是再DOM树中向下遍历一个层级</p>
-<h3 id="is"><a href="#is" class="headerlink" title=".is()"></a>.is()</h3><p>判断当前匹配的元素集合中的元素，是否为一个选择器，DOM元素，或者jQuery对象，如果这些元素至少一个匹配给定的参数，那么返回true。</p>
-<h3 id="map-callback-index-domElement"><a href="#map-callback-index-domElement" class="headerlink" title=".map( callback(index, domElement) )"></a>.map( callback(index, domElement) )</h3><p>由于返回值是一个jQuery包裹的数组，所以通常会使用get()方法将其转换成普通的数组。</p>
-<h3 id="next-selector"><a href="#next-selector" class="headerlink" title=".next( [selector ] )"></a>.next( [selector ] )</h3><p>取得匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。如果提供一个选择器，那么只有紧跟着的兄弟元素满足选择器时，才会返回此元素。</p>
-<h3 id="nextAll-selector"><a href="#nextAll-selector" class="headerlink" title=".nextAll( [selector ] )"></a>.nextAll( [selector ] )</h3><p>获得每个匹配元素集合中所有后面的同辈元素，选择性筛选的选择器。</p>
-<h3 id="nextUntil"><a href="#nextUntil" class="headerlink" title=".nextUntil()"></a>.nextUntil()</h3><p>通过选择器，DOM节点，或jQuery对象得到每个元素之后的所有兄弟元素，但不包括匹配的元素。</p>
-<h3 id="nextUntil-selector-filter"><a href="#nextUntil-selector-filter" class="headerlink" title=".nextUntil( [selector ] [, filter ] )"></a>.nextUntil( [selector ] [, filter ] )</h3><p>该方法的 filter 参数接受一个选择器表达式。如果提供此参数，将通过此参数提供的选择器表达式测试它们是否匹配过滤元素。</p>
-<h3 id="not"><a href="#not" class="headerlink" title=".not()"></a>.not()</h3><p>从匹配的元素集合中移除指定的元素。</p>
-<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title=".offsetParent()"></a>.offsetParent()</h3><p>取得离指定元素最近的含有定位信息的祖先元素。含有定位信息的元素指的是，CSS 的 position 属性是 relative, absolute, 或 fixed 的元素。</p>
-<h3 id="parent-selector"><a href="#parent-selector" class="headerlink" title=".parent([selector ])"></a>.parent([selector ])</h3><p>取得匹配元素集合中，每个元素的父元素，可以提供一个可选的选择器。<br>只匹配直接父元素,而不是祖先元素.</p>
-<h3 id="parents-selector"><a href="#parents-selector" class="headerlink" title=".parents( [selector ] )"></a>.parents( [selector ] )</h3><p>获得集合中每个匹配元素的祖先元素，可以提供一个可选的选择器作为参数。</p>
-<h3 id="parentsUntil-selector-filter"><a href="#parentsUntil-selector-filter" class="headerlink" title=".parentsUntil( [selector ] [, filter ] )"></a>.parentsUntil( [selector ] [, filter ] )</h3><h3 id="prev-selector"><a href="#prev-selector" class="headerlink" title=".prev( [selector ] )"></a>.prev( [selector ] )</h3><h3 id="prevAll"><a href="#prevAll" class="headerlink" title=".prevAll()"></a>.prevAll()</h3><h3 id="prevUntil"><a href="#prevUntil" class="headerlink" title=".prevUntil()"></a>.prevUntil()</h3><h3 id="siblings"><a href="#siblings" class="headerlink" title=".siblings()"></a>.siblings()</h3><p>获得匹配元素集合中每个元素的兄弟元素,可以提供一个可选的选择器。</p>
-<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title=".slice( start [, end ] )"></a>.slice( start [, end ] )</h3><p>根据指定的下标范围，过滤匹配的元素集合，并生成一个新的 jQuery 对象。(不包括end索引的项)</p>
+<ul>
+<li>.find()</li>
+</ul>
+<p>通过一个选择器，jQuery对象，或元素过滤，允许我们能够通过查找DOM树中的这些元素的后代元素，匹配的元素将构造一个新的jQuery对象。.find()和.children()方法是相似的，但后者只是再DOM树中向下遍历一个层级</p>
+<ul>
+<li>.is()</li>
+</ul>
+<p>判断当前匹配的元素集合中的元素，是否为一个选择器，DOM元素，或者jQuery对象，如果这些元素至少一个匹配给定的参数，那么返回true。</p>
+<ul>
+<li>.map( callback(index, domElement) )</li>
+</ul>
+<p>由于返回值是一个jQuery包裹的数组，所以通常会使用get()方法将其转换成普通的数组。</p>
+<ul>
+<li>.next( [selector ] )</li>
+</ul>
+<p>取得匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。如果提供一个选择器，那么只有紧跟着的兄弟元素满足选择器时，才会返回此元素。</p>
+<ul>
+<li>.nextAll( [selector ] )</li>
+</ul>
+<p>获得每个匹配元素集合中所有后面的同辈元素，选择性筛选的选择器。</p>
+<ul>
+<li>.nextUntil()</li>
+</ul>
+<p>通过选择器，DOM节点，或jQuery对象得到每个元素之后的所有兄弟元素，但不包括匹配的元素。</p>
+<ul>
+<li>.nextUntil( [selector ] [, filter ] )</li>
+</ul>
+<p>该方法的 filter 参数接受一个选择器表达式。如果提供此参数，将通过此参数提供的选择器表达式测试它们是否匹配过滤元素。</p>
+<ul>
+<li>.not()</li>
+</ul>
+<p>从匹配的元素集合中移除指定的元素。</p>
+<ul>
+<li>.offsetParent()</li>
+</ul>
+<p>取得离指定元素最近的含有定位信息的祖先元素。含有定位信息的元素指的是，CSS 的 position 属性是 relative, absolute, 或 fixed 的元素。</p>
+<ul>
+<li>.parent([selector ])</li>
+</ul>
+<p>取得匹配元素集合中，每个元素的父元素，可以提供一个可选的选择器。<br>只匹配直接父元素,而不是祖先元素.</p>
+<ul>
+<li>.parents( [selector ] )</li>
+</ul>
+<p>获得集合中每个匹配元素的祖先元素，可以提供一个可选的选择器作为参数。</p>
+<ul>
+<li><p>.parentsUntil( [selector ] [, filter ] )</p>
+</li>
+<li><p>.prev( [selector ] )</p>
+</li>
+<li><p>.prevAll()</p>
+</li>
+<li><p>.prevUntil()</p>
+</li>
+<li><p>.siblings()</p>
+</li>
+</ul>
+<p>获得匹配元素集合中每个元素的兄弟元素,可以提供一个可选的选择器。</p>
+<ul>
+<li>.slice( start [, end ] )</li>
+</ul>
+<p>根据指定的下标范围，过滤匹配的元素集合，并生成一个新的 jQuery 对象。(不包括end索引的项)</p>
+<h2 id="DOM属性"><a href="#DOM属性" class="headerlink" title="DOM属性"></a>DOM属性</h2><ul>
+<li><p>.addClass()</p>
+</li>
+<li><p>.addClass(className)</p>
+</li>
+<li><p><code>.addClass(function(index,currentClass)&#123;return ...&#125;)</code></p>
+</li>
+<li><p>.attr()</p>
+</li>
+</ul>
+<p>获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。</p>
+<ul>
+<li><p>.attr(attributeName)</p>
+</li>
+<li><p>.attr(attributeName,value)</p>
+</li>
+<li><p>.attr(attributes)<br>.attr({alt:”Hello world”,city:”Beijing”})</p>
+</li>
+<li><p>.attr(attributeName,function(index,value){return })</p>
+</li>
+<li><p>.prop()</p>
+</li>
+</ul>
+<p>注意与.attr的区别<br>例如, selectedIndex, tagName, nodeName, nodeType, ownerDocument, defaultChecked, 和 defaultSelected 应使用.prop()方法进行取值或赋值。</p>
+<ul>
+<li>.hasClass()</li>
+</ul>
+<p>确定任何一个匹配元素是否有被分配给定的（样式）类。</p>
+<ul>
+<li>.html()</li>
+</ul>
+<p>获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容。<br>在一个 HTML 文档中, 我们可以使用 .html() 方法来获取任意一个元素的内容。 如果选择器匹配多个元素，那么只有第一个匹配元素的 HTML 内容会被获取。结果会包含文本节点或者注释节点.</p>
+<p>.html(htmlString)<br>我们可以使用 .html() 来设置元素的内容，这些元素中的任何内容会完全被新的内容取代。</p>
+<p>.html(function(index,oldhtml){return })</p>
+<ul>
+<li><p>.removeAttr()</p>
+</li>
+<li><p>.removeClass()</p>
+</li>
+<li><p>.removeClass( [className ] )<br>每个匹配元素移除的一个或多个用空格隔开的样式名。如果一个样式类名作为一个参数,只有这样式类会被从匹配的元素集合中删除 。 如果没有样式名作为参数，那么所有的样式类将被移除。</p>
+</li>
+<li><p>.removeClass( function(index, class) )<br>一个函数，返回一个或多个将要被移除的样式名。index 参数表示在所有匹配元素的集合中当前元素的索引位置。class 参数表示原有的样式名。</p>
+</li>
+<li><p>.removeProp()</p>
+</li>
+</ul>
+<p>为集合中匹配的元素删除一个属性（property）。<br>一般来说,只需要移除自定义的 属性（ property ） ，而不是移除内建的（原生的）属性（ property ）。</p>
+<ul>
+<li>.toggleClass()</li>
+</ul>
+<p>在匹配的元素集合中的每个元素上添加或删除一个或多个样式类,取决于这个样式类是否存在或值切换属性。即：如果存在（不存在）就删除（添加）一个类。</p>
+<p>如果不将任何参数传递给 .toggleClass() 方法,那么匹配元素上的所有样式会在该方法第一次执行时被移除，第二次执行时被还原，如此往复。</p>
+<ul>
+<li><p>.toggleClass( className, switch )<br>switch值为布尔值,如果switch值为true,那么就添加className,如果switch为false,则删除className</p>
+</li>
+<li><p>.toggleClass( function(index, class, switch) [, switch ]</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div.foo&#x27;</span>).toggleClass(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="built_in">this</span>).parent().is(<span class="string">&#x27;.bar&#x27;</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;happy&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;sad&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果匹配元素的父级元素有bar样式类名，这个例子将为<code>&lt;div class=&quot;foo&quot;&gt;</code>元素切换 happy 样式类； 否则他将切换 sad 样式类</p>
+<ul>
+<li>.val()</li>
+</ul>
+<p>.val()方法主要用于获取表单元素的值，比如 input, select 和 textarea。对于 <code>&lt;select multiple=&quot;multiple&quot;&gt;</code> 元素, .val()方法返回一个包含每个选择项的数组，如果没有选择性被选中，它返回null。</p>
+<p>.val( value )<br>设置匹配的元素集合中每个元素的值。此方法通常用于设置表单字段的值。</p>
+<p>.val( function(index, value) )</p>
+<h2 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h2><ul>
+<li>.after()</li>
+</ul>
+<p>在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点。</p>
+<ul>
+<li>.after(content[,content])</li>
+<li>.after(function(index))<br>一个返回HTML字符串，DOM 元素， 或者 jQuery 对象的函数，插在每个匹配元素的后面。接收元素在集合中的索引位置作为参数。在函数中this指向元素集合中的当前元素。</li>
+</ul>
+<p>.after()和.insertAfter()实现同样的功能。主要的不同是语法——特别是内容和目标的位置。 对于 .after(), 选择表达式在函数的前面，参数是将要插入的内容。 对于.insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面。</p>
+<p>如果要插入的内容本来存在于文档中,那么分两种情况.<br>如果有多个目标元素(after之前的内容),那么内容将被复制然后被插入到每个目标后面。被插入内容从文档节点中消失.<br>如果只有一个目标元素,那么就是移动要插入的内容到被选中的元素后面.</p>
+<ul>
+<li><p>.inesrtAfter()</p>
+</li>
+<li><p>.append()</p>
+</li>
+</ul>
+<p>在每个匹配元素里面的末尾处插入参数内容。.append() 和.appendTo()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.append(), 选择器表达式在函数的前面，参数是将要插入的内容。对于.appendTo()刚好相反，内容在方法前面，无论是一个选择器表达式 或创建作为标记上的标记，它都将被插入到目标容器的末尾。</p>
+<ul>
+<li><p>.appendTo()</p>
+</li>
+<li><p>.before()</p>
+</li>
+</ul>
+<p>根据参数设定，在匹配元素的前面插入内容（译者注：外部插入）</p>
+<ul>
+<li><p>.insertBefore()</p>
+</li>
+<li><p>.prepend()</p>
+</li>
+</ul>
+<p>将参数内容插入到每个匹配元素的前面（元素内部）。<br>.prepend()方法将指定元素插入到匹配元素里面作为它的第一个子元素 (如果要作为最后一个子元素插入用.append()).</p>
+<p>.prepend()和.prependTo()实现同样的功能，主要的不同是语法，插入的内容和目标的位置不同。 对于  .prepend() 而言，选择器表达式写在方法的前面，作为待插入内容的容器，将要被插入的内容作为方法的参数。而 .prependTo() 正好相反，将要被插入的内容写在方法的前面，可以是选择器表达式或动态创建的标记，待插入内容的容器作为参数。</p>
+<ul>
+<li><p>.prependTo()</p>
+</li>
+<li><p>CSS属性</p>
+<ul>
+<li><p>.css()<br>获取匹配元素集合中的第一个元素的样式属性的值  或  设置每个匹配元素的一个或多个CSS属性。</p>
+</li>
+<li><p>.height()</p>
+</li>
+</ul>
+<p>得到匹配元素集合中第一个元素经过计算后的数值 或者 设置每一个匹配元素的高度值.<br>高度为内容高度,结果为数值类型,结果为(400).<br>.css(‘height’)得到的是字符串类型,结果为(400px).</p>
+<p>.height(value)<br>value可以为数值或者字符串.如果是数值,那么会默认单位为px.如果是字符串,则可以为<code>50%``auto</code>等等.<br>需要主要的是无论box-sizing的值为如何,该结果改变的都是内容高度.</p>
+<ul>
+<li><p>.innerHeight()<br>得到当前计算的inner高度(包含padding)<br>该方法不适用于document,window.针对上述两种对象,可以用height().</p>
+</li>
+<li><p>.innerWidh()</p>
+</li>
+<li><p>.width()</p>
+</li>
+<li><p>.offset()<br>在匹配的元素集合中，获取的第一个元素的当前坐标，或设置每一个元素的坐标，坐标相对于文档。<br>offset返回一个对象,对象属性包含top值和left值.(以border-box的值计算,排除margin)</p>
+</li>
+<li><p>.position()<br>在匹配的元素集合中，获取的第一个元素的当前坐标，或设置每一个元素的坐标，坐标相对于父辈元素.</p>
+</li>
+<li><p>.outerHeight()<br>包含margin的值</p>
+</li>
+<li><p>.outerWidht()</p>
+</li>
+<li><p>.scrollLeft()<br>得到一个元素滚动条的水平位置<br>.scrollLeft(value)<br>设置一个元素滚动条的水平位置</p>
+</li>
+<li><p>scrollTop()</p>
+</li>
+<li><p>.replaceAll()<br>用elem来替换参数里面的元素.和replaceWith正好相反.<br>如果elem在文档中,那么elem会移动到替换的元素位置,而不是复制.<br>会移除所有被移除节点的数据和事件处理.</p>
+</li>
+<li><p>.replaceWith()<br>用参数里面的元素来替换elem.<br>需要注意的是replaceWith返回的是被移除的元素.</p>
+</li>
+<li><p>.text()<br>取得筛选元素的文本值,包括它们的后代元素的文本值.<br>.text([String])<br>如果为元素赋值时,需要注意如果String为<code>&lt;p&gt;Hello world&lt;/p&gt;</code>,那么在html的渲染后,仍然是<code>&lt;p&gt;Hello world&lt;/p&gt;</code>,而不会是<code>Hello world</code>.</p>
+</li>
+<li><p>.unwrap([selector])<br>删除选择后元素的父辈节点,返回未被包裹的内容.如果存在参数,那么判断父辈是否符合选择器匹配,如果相匹配,那么会删除父辈元素.如果不匹配,那么不会做任何处理.</p>
+</li>
+<li><p>.wrap(wrappingElement)<br>用参数中的内容来包裹elem.参数的内容指定一个DOM结构。这种结构可以嵌套多层，但是最内层只能有一个元素。参数可以为htmlString(<code>&lt;div class=&quot;one&quot;&gt;&lt;/div&gt;</code>),或者选择器(selector)或者元素或者jquery对象或者函数.</p>
+</li>
+<li><p>.wrapAll(wrappingElemnt)<br>用参数的内容来包裹elem.和wrap的区别是wrap会分别包裹,而wrapAll会筛选出以后作为一个集体只包裹一次.所有匹配元素将会被当作是一个整体，在这个整体的外部用指定的 HTML 结构进行包裹。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;inner first&quot;</span>&gt;Hello&lt;/div&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;inners second&quot;</span>&gt;And&lt;/div&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;inner third&quot;</span>&gt;Goodbye&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//需要主要的是如果对.inner进行wrapAll操作,那么会改变Dom结构,.third会移动到.first下面,然后对匹配的元素进行wrap.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>.wrapInner(wrappingElement)<br>使参数包裹在elem元素的里面,变成其子元素.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>.clone( [withDataAndEvents ] [, deepWithDataAndEvents ] )</li>
+</ul>
+<p>创建一个匹配的元素集合的深度拷贝副本。第一个参数默认为false,表示是否表示是否会复制元素上的事件处理函数。第二个参数指示是否对事件处理程序和克隆的元素的所有子元素的数据应该被复制。</p>
+<ul>
+<li>.detach( [selector ] )</li>
+</ul>
+<p>从DOM中删除匹配的元素集合.和remove()方法类似,区别是detach会保留相关的事件处理函数.因此detach适用于将被移除的数据重新插入到DOM中.</p>
+<ul>
+<li>.remove( [selector] )</li>
+</ul>
+<p>从DOM中删除匹配的元素集合.不会保留相关的事件处理函数.</p>
+<ul>
+<li>.empty()</li>
+</ul>
+<p>不接受任何参数.会移除所有的字节点(包括后代节点)以及文本节点.</p>
 
   
   
@@ -583,10 +862,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-07T13:12:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-08T22:26:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Nov 7, 2020</p>
+    <p>更新于：Nov 8, 2020</p>
   </a>
 </div>
 
@@ -718,7 +997,7 @@ match() 方法检索返回一个字符串匹配正则表达式的结果。
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">jQuery 选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%A6%E5%AE%9A%E5%BC%8F%E4%BC%AA%E7%B1%BB"><span class="toc-text">否定式伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="toc-text">属性选择符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="toc-text">自定义选择符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#contains"><span class="toc-text">:contains()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#animated"><span class="toc-text">:animated</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#empty"><span class="toc-text">:empty</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parent"><span class="toc-text">:parent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eq"><span class="toc-text">:eq()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#first"><span class="toc-text">:first</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#last"><span class="toc-text">:last</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gt-index"><span class="toc-text">:gt(index)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#has-selector"><span class="toc-text">has(selector)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hidden"><span class="toc-text">:hidden</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-text">.add()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#addBack"><span class="toc-text">.addBack()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#end"><span class="toc-text">.end()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#children"><span class="toc-text">.children()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#closest"><span class="toc-text">.closest()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#contents"><span class="toc-text">.contents()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#each-function-index-Element"><span class="toc-text">.each(function(index, Element))</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eq-index"><span class="toc-text">.eq(index)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-text">.filter()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#first-1"><span class="toc-text">.first()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#has"><span class="toc-text">.has()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-text">.find()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#is"><span class="toc-text">.is()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map-callback-index-domElement"><span class="toc-text">.map( callback(index, domElement) )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#next-selector"><span class="toc-text">.next( [selector ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextAll-selector"><span class="toc-text">.nextAll( [selector ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextUntil"><span class="toc-text">.nextUntil()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextUntil-selector-filter"><span class="toc-text">.nextUntil( [selector ] [, filter ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#not"><span class="toc-text">.not()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetParent"><span class="toc-text">.offsetParent()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parent-selector"><span class="toc-text">.parent([selector ])</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parents-selector"><span class="toc-text">.parents( [selector ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parentsUntil-selector-filter"><span class="toc-text">.parentsUntil( [selector ] [, filter ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prev-selector"><span class="toc-text">.prev( [selector ] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prevAll"><span class="toc-text">.prevAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prevUntil"><span class="toc-text">.prevUntil()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#siblings"><span class="toc-text">.siblings()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slice-start-end"><span class="toc-text">.slice( start [, end ] )</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">jQuery 选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%A6%E5%AE%9A%E5%BC%8F%E4%BC%AA%E7%B1%BB"><span class="toc-text">否定式伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="toc-text">属性选择符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="toc-text">自定义选择符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E5%B1%9E%E6%80%A7"><span class="toc-text">DOM属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E6%93%8D%E4%BD%9C"><span class="toc-text">DOM操作</span></a></li></ol>
     </div>
   </section>
 
